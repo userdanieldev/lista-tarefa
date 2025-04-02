@@ -1,10 +1,18 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\danie\\source\\repos\\lista-tarefa\\lista-tarefa\\",
+  "WorkspaceRootPath": "C:\\Users\\guvie\\source\\repos\\lista-tarefa\\lista-tarefa\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{009770CA-1C71-447F-93EA-7916A3074768}|lista-tarefa\\lista-tarefa.csproj|c:\\users\\danie\\source\\repos\\lista-tarefa\\lista-tarefa\\lista-tarefa\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{009770CA-1C71-447F-93EA-7916A3074768}|lista-tarefa\\lista-tarefa.csproj|solutionrelative:lista-tarefa\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{9E1462B4-25B8-42F1-91D5-68685CB0EBF7}|programa\\programa.csproj|c:\\users\\guvie\\source\\repos\\lista-tarefa\\lista-tarefa\\programa\\responsavel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9E1462B4-25B8-42F1-91D5-68685CB0EBF7}|programa\\programa.csproj|solutionrelative:programa\\responsavel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9E1462B4-25B8-42F1-91D5-68685CB0EBF7}|programa\\programa.csproj|c:\\users\\guvie\\source\\repos\\lista-tarefa\\lista-tarefa\\programa\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9E1462B4-25B8-42F1-91D5-68685CB0EBF7}|programa\\programa.csproj|solutionrelative:programa\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9E1462B4-25B8-42F1-91D5-68685CB0EBF7}|programa\\programa.csproj|c:\\users\\guvie\\source\\repos\\lista-tarefa\\lista-tarefa\\programa\\tarefa.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9E1462B4-25B8-42F1-91D5-68685CB0EBF7}|programa\\programa.csproj|solutionrelative:programa\\tarefa.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -14,23 +22,77 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 8,
           "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:133:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
             },
             {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:131:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:132:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:130:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:134:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\danie\\source\\repos\\lista-tarefa\\lista-tarefa\\lista-tarefa\\Program.cs",
-              "RelativeDocumentMoniker": "lista-tarefa\\Program.cs",
-              "ToolTip": "C:\\Users\\danie\\source\\repos\\lista-tarefa\\lista-tarefa\\lista-tarefa\\Program.cs",
-              "RelativeToolTip": "lista-tarefa\\Program.cs",
-              "ViewState": "AgIAAIUAAAAAAAAAAADwv5wAAAABAAAAAAAAAA==",
+              "Title": "Responsavel.cs",
+              "DocumentMoniker": "C:\\Users\\guvie\\source\\repos\\lista-tarefa\\lista-tarefa\\programa\\Responsavel.cs",
+              "RelativeDocumentMoniker": "programa\\Responsavel.cs",
+              "ToolTip": "C:\\Users\\guvie\\source\\repos\\lista-tarefa\\lista-tarefa\\programa\\Responsavel.cs",
+              "RelativeToolTip": "programa\\Responsavel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAApAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-01T00:07:06.408Z",
+              "WhenOpened": "2025-04-01T23:11:04.479Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Tarefa.cs",
+              "DocumentMoniker": "C:\\Users\\guvie\\source\\repos\\lista-tarefa\\lista-tarefa\\programa\\Tarefa.cs",
+              "RelativeDocumentMoniker": "programa\\Tarefa.cs",
+              "ToolTip": "C:\\Users\\guvie\\source\\repos\\lista-tarefa\\lista-tarefa\\programa\\Tarefa.cs",
+              "RelativeToolTip": "programa\\Tarefa.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAAA3wBwAAAA8AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-01T23:10:33.532Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\guvie\\source\\repos\\lista-tarefa\\lista-tarefa\\programa\\Program.cs",
+              "RelativeDocumentMoniker": "programa\\Program.cs",
+              "ToolTip": "C:\\Users\\guvie\\source\\repos\\lista-tarefa\\lista-tarefa\\programa\\Program.cs",
+              "RelativeToolTip": "programa\\Program.cs",
+              "ViewState": "AgIAAOMAAAAAAAAAAAAcwGEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-01T23:07:53.873Z",
               "EditorCaption": ""
             }
           ]

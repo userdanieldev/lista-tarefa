@@ -1,0 +1,15 @@
+C:\Users\guvie\source\repos\lista-tarefa\lista-tarefa\lista-tarefa\bin\Debug\net8.0\lista-tarefa.exe
+C:\Users\guvie\source\repos\lista-tarefa\lista-tarefa\lista-tarefa\bin\Debug\net8.0\lista-tarefa.deps.json
+C:\Users\guvie\source\repos\lista-tarefa\lista-tarefa\lista-tarefa\bin\Debug\net8.0\lista-tarefa.runtimeconfig.json
+C:\Users\guvie\source\repos\lista-tarefa\lista-tarefa\lista-tarefa\bin\Debug\net8.0\lista-tarefa.dll
+C:\Users\guvie\source\repos\lista-tarefa\lista-tarefa\lista-tarefa\bin\Debug\net8.0\lista-tarefa.pdb
+C:\Users\guvie\source\repos\lista-tarefa\lista-tarefa\lista-tarefa\obj\Debug\net8.0\lista-tarefa.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\guvie\source\repos\lista-tarefa\lista-tarefa\lista-tarefa\obj\Debug\net8.0\lista-tarefa.AssemblyInfoInputs.cache
+C:\Users\guvie\source\repos\lista-tarefa\lista-tarefa\lista-tarefa\obj\Debug\net8.0\lista-tarefa.AssemblyInfo.cs
+C:\Users\guvie\source\repos\lista-tarefa\lista-tarefa\lista-tarefa\obj\Debug\net8.0\lista-tarefa.csproj.CoreCompileInputs.cache
+C:\Users\guvie\source\repos\lista-tarefa\lista-tarefa\lista-tarefa\obj\Debug\net8.0\lista-tarefa.sourcelink.json
+C:\Users\guvie\source\repos\lista-tarefa\lista-tarefa\lista-tarefa\obj\Debug\net8.0\lista-tarefa.dll
+C:\Users\guvie\source\repos\lista-tarefa\lista-tarefa\lista-tarefa\obj\Debug\net8.0\refint\lista-tarefa.dll
+C:\Users\guvie\source\repos\lista-tarefa\lista-tarefa\lista-tarefa\obj\Debug\net8.0\lista-tarefa.pdb
+C:\Users\guvie\source\repos\lista-tarefa\lista-tarefa\lista-tarefa\obj\Debug\net8.0\lista-tarefa.genruntimeconfig.cache
+C:\Users\guvie\source\repos\lista-tarefa\lista-tarefa\lista-tarefa\obj\Debug\net8.0\ref\lista-tarefa.dll
