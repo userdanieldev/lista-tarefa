@@ -10,7 +10,7 @@ namespace GestaoTarefas
     {
         public string Nome { get; set; }
         public bool Concluida { get; set; }
-        public Responsavel? Responsavel { get; set; } // Pode ser null se a tarefa ainda não tiver um responsável
+        public Responsavel? Responsavel { get; set; }
 
         public Tarefa(string nome, Responsavel? responsavel = null)
         {

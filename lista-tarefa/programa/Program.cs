@@ -6,6 +6,8 @@ class Program
 {
     static List<Responsavel> listaDeResponsaveis = new List<Responsavel>();
     static List<Tarefa> listaDeTarefas = new List<Tarefa>();
+    static TarefaService listaService = new TarefaService(listaDeTarefas);
+
 
     static void Main()
     {
@@ -16,12 +18,13 @@ class Program
             Console.Clear();
             Console.WriteLine("=== Menu de Opções ===");
             Console.WriteLine("1 - Cadastrar novo responsável");
-            Console.WriteLine("2 - Excluir responsável");
+            Console.WriteLine("2 - Cadastrar Tarefa");
             Console.WriteLine("3 - Listar Responsáveis");
-            Console.WriteLine("4 - Cadastrar Tarefa");
-            Console.WriteLine("5 - Excluir Tarefa");
-            Console.WriteLine("6 - Atualizar Status da Tarefa");
-            Console.WriteLine("7 - Listar Tarefas");
+            Console.WriteLine("4 - Listar Tarefas");
+            Console.WriteLine("5 - Excluir responsável");
+            Console.WriteLine("6 - Excluir Tarefa");
+            Console.WriteLine("7 - Mudar Status da Tarefa para Conlcuido");
+            
             Console.WriteLine("0 - Sair");
             Console.Write("\nEscolha uma opção: ");
 
@@ -33,22 +36,22 @@ class Program
                         cadastrarNovoResponsavel();
                         break;
                     case 2:
-                        excluirResponsavel();
+                        cadastrarNovaTarefa();
                         break;
                     case 3:
                         listarResponsavel();
                         break;
                     case 4:
-                        cadastrarNovaTarefa();
+                        listarTarefa();
                         break;
                     case 5:
-                        excluirTarefa();
+                        excluirResponsavel();
                         break;
                     case 6:
-                        atualizarStatusTarefa();
+                        excluirTarefa();
                         break;
                     case 7:
-                        listarTarefa();
+                        atualizarStatusTarefa();
                         break;
                     case 0:
                         Console.WriteLine("\nSaindo...");
@@ -71,26 +74,33 @@ class Program
 
     static void cadastrarNovoResponsavel()
     {
-        Console.Write("Insira o nome do responsável: ");
-        string nome = Console.ReadLine();
-        Console.Write("Insira o e-mail do responsável: ");
-        string email = Console.ReadLine();
+        string nome = LerEntradaObrigatoria("Insira o nome do responsável: ");
+        string email = LerEntradaObrigatoria("Insira o e-mail do responsável: ");
 
         listaDeResponsaveis.Add(new Responsavel(nome, email));
         Console.WriteLine($"Responsável {nome} cadastrado com sucesso!");
     }
 
+
     static void cadastrarNovaTarefa()
     {
-        Console.Write("Insira o nome da tarefa: ");
-        string nomeTarefa = Console.ReadLine();
+        string nomeTarefa = LerEntradaObrigatoria("Insira o nome da tarefa: ");
 
-        Console.WriteLine("Deseja vincular um responsável a esta tarefa?");
+        Console.Write("Digite o nome do responsável (ou deixe em branco para nenhuma): ");
+        string nomeResponsavel = LerEntradaObrigatoria("Insira o nome da tarefa que deseja excluir: ");
 
-        Console.Write("Digite o nome do responsável ou pressione Enter para deixar sem responsável: ");
-        string nomeResponsavel = Console.ReadLine();
+        Responsavel? responsavel = null;
 
-        Responsavel? responsavel = listaDeResponsaveis.FirstOrDefault(r => r.Nome == nomeResponsavel);
+        if (!string.IsNullOrWhiteSpace(nomeResponsavel))
+        {
+            responsavel = listaDeResponsaveis.FirstOrDefault(r => r.Nome == nomeResponsavel);
+
+            if (responsavel == null)
+            {
+                Console.WriteLine($"Responsável \"{nomeResponsavel}\" não encontrado. A tarefa não será cadastrada.");
+                return;
+            }
+        }
 
         listaDeTarefas.Add(new Tarefa(nomeTarefa, responsavel));
         Console.WriteLine($"Tarefa '{nomeTarefa}' cadastrada com sucesso!");
@@ -98,56 +108,56 @@ class Program
 
     static void excluirResponsavel()
     {
-        Console.Write("Insira o nome do responsável que deseja excluir: ");
-
-        string nome = Console.ReadLine();
+        string nome = LerEntradaObrigatoria("Insira o nome do responsável que deseja excluir: ");
 
         Responsavel? responsavel = listaDeResponsaveis.FirstOrDefault(r => r.Nome == nome);
 
-        if (responsavel != null)
+        if (responsavel == null)
         {
-            listaDeResponsaveis.Remove(responsavel);
-            Console.WriteLine($"O responsável {nome} foi excluído.");
+            Console.WriteLine($"Responsável \"{nome}\" não encontrado.");
+            return;
         }
-        else
-        {
-            Console.WriteLine("Responsável não encontrado.");
-        }
+
+        listaDeResponsaveis.Remove(responsavel);
+        Console.WriteLine($"O responsável \"{nome}\" foi excluído.");
     }
 
     static void excluirTarefa()
     {
-        Console.Write("Insira o nome da tarefa que deseja excluir: ");
-        string nome = Console.ReadLine();
+        string nome = LerEntradaObrigatoria("Insira o nome da tarefa que deseja excluir: ");
 
         Tarefa? tarefa = listaDeTarefas.FirstOrDefault(t => t.Nome == nome);
 
-        if (tarefa != null)
+        if (tarefa == null)
         {
-            listaDeTarefas.Remove(tarefa);
-            Console.WriteLine($"A tarefa '{nome}' foi excluída.");
+            Console.WriteLine($"Tarefa \"{nome}\" não encontrada.");
+            return;
         }
-        else
-        {
-            Console.WriteLine("Tarefa não encontrada.");
-        }
+
+        listaDeTarefas.Remove(tarefa);
+        Console.WriteLine($"A tarefa \"{nome}\" foi excluída.");
     }
 
     static void atualizarStatusTarefa()
     {
-        Console.Write("Insira o nome da tarefa que deseja atualizar: ");
-        string nome = Console.ReadLine();
+        string nome = LerEntradaObrigatoria("Insira o nome da tarefa que deseja atualizar: ");
 
         Tarefa? tarefa = listaDeTarefas.FirstOrDefault(t => t.Nome == nome);
-        if (tarefa != null)
+
+        if (tarefa == null)
         {
-            tarefa.MarcarComoConcluida();
-            Console.WriteLine($"A tarefa '{nome}' foi marcada como concluída.");
+            Console.WriteLine($"Tarefa \"{nome}\" não encontrada.");
+            return;
         }
-        else
+
+        if (tarefa.Concluida)
         {
-            Console.WriteLine("Tarefa não encontrada.");
+            Console.WriteLine($"A tarefa \"{nome}\" já está marcada como concluída.");
+            return;
         }
+
+        tarefa.MarcarComoConcluida();
+        Console.WriteLine($"A tarefa \"{nome}\" foi marcada como concluída.");
     }
 
     static void listarResponsavel()
@@ -175,79 +185,26 @@ class Program
         }
         else
         {
-            int opcaoListar;
-            do
-            {
-                Console.Clear();
-                Console.WriteLine("=== Listar Tarefas ===");
-                Console.WriteLine("1 - Listar Tarefas Pendentes");
-                Console.WriteLine("2 - Listar Tarefas Concluidas");
-                Console.WriteLine("3 - Listar Tarefas Por Responsavel");
-                Console.WriteLine("4 - Listar Tarefas Pendentes Por Responsavel");
-                Console.WriteLine("5 - Listar Tarefas Concluidas Por Responsavel");
-                Console.WriteLine("0 - voltar");
-                Console.Write("\nEscolha uma opção: ");
-
-                if (int.TryParse(Console.ReadLine(), out opcaoListar))
-                {
-                    switch (opcaoListar)
-                    {
-                        case 1:
-                            listarTarefasPendentes();
-                            break;
-                        case 2:
-                            listarTarefasConcluidas();
-                            break;
-                        case 3:
-                            listarTarefaResponsavel();
-                            break;
-                        case 4:
-                            listarTarefaPendenteResponsavel();
-                            break;
-                        case 5:
-                            listarTarefaConcluidaResponsavel();
-                            break;
-                        case 0:
-                            Console.WriteLine("\nVoltando...");
-                            break;
-                        default:
-                            Console.WriteLine("\nOpção inválida! Tente novamente.");
-                            break;
-                    }
-                }
-                else
-                {
-                    Console.WriteLine("\nEntrada inválida! Digite um número.");
-                }
-
-            } while (opcaoListar != 0);
+            listaService.ListarMenuDeTarefas();
         }
-
     }
 
-    static void listarTarefasPendentes()
+    static string LerEntradaObrigatoria(string mensagem)
     {
-        Console.WriteLine("listar tarefas pendentes");
-    }
+        string? entrada;
+        do
+        {
+            Console.Write(mensagem);
+            entrada = Console.ReadLine()?.Trim();
 
-    static void listarTarefasConcluidas()
-    {
-        Console.WriteLine("listar tarefas concluidas");
-    }
+            if (string.IsNullOrWhiteSpace(entrada))
+            {
+                Console.WriteLine("Entrada inválida! O valor não pode estar vazio.");
+            }
 
-    static void listarTarefaResponsavel()
-    {
-        Console.WriteLine("listar tarefas por responsavel");
-    }
+        } while (string.IsNullOrWhiteSpace(entrada));
 
-    static void listarTarefaPendenteResponsavel()
-    {
-        Console.WriteLine("listar tarefas pendentes por responsavel");
-    }
-
-    static void listarTarefaConcluidaResponsavel()
-    {
-        Console.WriteLine("listar tarefas concluidas por responsavel");
+        return entrada;
     }
 }
 
