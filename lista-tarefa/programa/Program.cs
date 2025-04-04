@@ -87,7 +87,7 @@ class Program
         string nomeTarefa = LerEntradaObrigatoria("Insira o nome da tarefa: ");
 
         Console.Write("Digite o nome do responsável (ou deixe em branco para nenhuma): ");
-        string nomeResponsavel = LerEntradaObrigatoria("Insira o nome da tarefa que deseja excluir: ");
+        string? nomeResponsavel = Console.ReadLine()?.Trim();
 
         Responsavel? responsavel = null;
 
