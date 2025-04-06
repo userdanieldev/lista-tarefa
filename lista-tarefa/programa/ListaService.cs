@@ -74,7 +74,7 @@ class TarefaService
 
     private void Listar(TipoListagem tipo)
     {
-        var tarefas = FiltrarTarefas(tipo);
+        var tarefas = FiltrarTarefas(tipo).OrderBy(t => t.DataLimite).ToList();
 
         string titulo = tipo switch
         {
@@ -97,6 +97,7 @@ class TarefaService
 
         var tarefasDoResponsavel = FiltrarTarefas(tipo)
             .Where(t => t.Responsavel?.Nome == nome)
+            .OrderBy(t => t.DataLimite)
             .ToList();
 
         if (!tarefasDoResponsavel.Any())
@@ -122,8 +123,8 @@ class TarefaService
         return tipo switch
         {
             TipoListagem.Todas => _tarefas.ToList(),
-            TipoListagem.Pendentes => _tarefas.Where(t => t.Status.Equals("Pendente", StringComparison.OrdinalIgnoreCase)).ToList(),
-            TipoListagem.Concluidas => _tarefas.Where(t => t.Status.Equals("Concluida", StringComparison.OrdinalIgnoreCase)).ToList(),
+            TipoListagem.Pendentes => _tarefas.Where(t => t.Status != StatusTarefa.Concluida).ToList(),
+            TipoListagem.Concluidas => _tarefas.Where(t => t.Status == StatusTarefa.Concluida).ToList(),
             _ => new List<Tarefa>()
         };
     }

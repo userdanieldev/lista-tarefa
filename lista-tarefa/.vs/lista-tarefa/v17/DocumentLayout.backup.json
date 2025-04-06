@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\Felip\\OneDrive\\Documentos\\Projetos\\lista-tarefa\\lista-tarefa\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{9E1462B4-25B8-42F1-91D5-68685CB0EBF7}|programa\\programa.csproj|c:\\users\\felip\\onedrive\\documentos\\projetos\\lista-tarefa\\lista-tarefa\\programa\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9E1462B4-25B8-42F1-91D5-68685CB0EBF7}|programa\\programa.csproj|solutionrelative:programa\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{9E1462B4-25B8-42F1-91D5-68685CB0EBF7}|programa\\programa.csproj|c:\\users\\felip\\onedrive\\documentos\\projetos\\lista-tarefa\\lista-tarefa\\programa\\tarefa.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{9E1462B4-25B8-42F1-91D5-68685CB0EBF7}|programa\\programa.csproj|solutionrelative:programa\\tarefa.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9E1462B4-25B8-42F1-91D5-68685CB0EBF7}|programa\\programa.csproj|c:\\users\\felip\\onedrive\\documentos\\projetos\\lista-tarefa\\lista-tarefa\\programa\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9E1462B4-25B8-42F1-91D5-68685CB0EBF7}|programa\\programa.csproj|solutionrelative:programa\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{9E1462B4-25B8-42F1-91D5-68685CB0EBF7}|programa\\programa.csproj|c:\\users\\felip\\onedrive\\documentos\\projetos\\lista-tarefa\\lista-tarefa\\programa\\listaservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -61,6 +61,10 @@
               "Name": "ST:134:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
             },
             {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
               "$type": "Document",
               "DocumentIndex": 3,
               "Title": "Responsavel.cs",
@@ -68,32 +72,33 @@
               "RelativeDocumentMoniker": "programa\\Responsavel.cs",
               "ToolTip": "C:\\Users\\Felip\\OneDrive\\Documentos\\Projetos\\lista-tarefa\\lista-tarefa\\programa\\Responsavel.cs",
               "RelativeToolTip": "programa\\Responsavel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAApAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-01T23:11:04.479Z"
+              "WhenOpened": "2025-04-01T23:11:04.479Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "Tarefa.cs",
               "DocumentMoniker": "C:\\Users\\Felip\\OneDrive\\Documentos\\Projetos\\lista-tarefa\\lista-tarefa\\programa\\Tarefa.cs",
               "RelativeDocumentMoniker": "programa\\Tarefa.cs",
               "ToolTip": "C:\\Users\\Felip\\OneDrive\\Documentos\\Projetos\\lista-tarefa\\lista-tarefa\\programa\\Tarefa.cs",
               "RelativeToolTip": "programa\\Tarefa.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAAAwAAAA1AAAAAAAAAA==",
+              "ViewState": "AgIAABwAAAAAAAAAAAA9wDUAAAApAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-01T23:10:33.532Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\Felip\\OneDrive\\Documentos\\Projetos\\lista-tarefa\\lista-tarefa\\programa\\Program.cs",
               "RelativeDocumentMoniker": "programa\\Program.cs",
               "ToolTip": "C:\\Users\\Felip\\OneDrive\\Documentos\\Projetos\\lista-tarefa\\lista-tarefa\\programa\\Program.cs",
               "RelativeToolTip": "programa\\Program.cs",
-              "ViewState": "AgIAAFQAAAAAAAAAAAAowFsAAAAoAAAAAAAAAA==",
+              "ViewState": "AgIAACcAAAAAAAAAAAAkwJAAAAAcAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-01T23:07:53.873Z",
               "EditorCaption": ""
@@ -106,14 +111,10 @@
               "RelativeDocumentMoniker": "programa\\ListaService.cs",
               "ToolTip": "C:\\Users\\Felip\\OneDrive\\Documentos\\Projetos\\lista-tarefa\\lista-tarefa\\programa\\ListaService.cs",
               "RelativeToolTip": "programa\\ListaService.cs",
-              "ViewState": "AgIAAAcAAAAAAAAAAAAgwBEAAAA4AAAAAAAAAA==",
+              "ViewState": "AgIAAHEAAAAAAAAAAAAIwJwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-04T22:26:22.039Z",
               "EditorCaption": ""
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
             }
           ]
         }

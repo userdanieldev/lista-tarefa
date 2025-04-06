@@ -23,8 +23,8 @@ class Program
             Console.WriteLine("4 - Listar Tarefas");
             Console.WriteLine("5 - Excluir responsável");
             Console.WriteLine("6 - Excluir Tarefa");
-            Console.WriteLine("7 - Mudar Status da Tarefa para Conlcuido");
-            
+            Console.WriteLine("7 - Mudar Status da Tarefa");
+
             Console.WriteLine("0 - Sair");
             Console.Write("\nEscolha uma opção: ");
 
@@ -75,6 +75,13 @@ class Program
     static void cadastrarNovoResponsavel()
     {
         string nome = LerEntradaObrigatoria("Insira o nome do responsável: ");
+        
+        if (listaDeResponsaveis.Any(r => r.Nome == nome))
+        {
+            Console.WriteLine($"Já existe um responsável com o nome \"{nome}\".");
+            return;
+        }
+
         string email = LerEntradaObrigatoria("Insira o e-mail do responsável: ");
 
         listaDeResponsaveis.Add(new Responsavel(nome, email));
@@ -86,24 +93,87 @@ class Program
     {
         string nomeTarefa = LerEntradaObrigatoria("Insira o nome da tarefa: ");
 
-        Console.Write("Digite o nome do responsável (ou deixe em branco para nenhuma): ");
-        string? nomeResponsavel = Console.ReadLine()?.Trim();
-
-        Responsavel? responsavel = null;
-
-        if (!string.IsNullOrWhiteSpace(nomeResponsavel))
+        if (listaDeTarefas.Any(t => t.Nome == nomeTarefa))
         {
-            responsavel = listaDeResponsaveis.FirstOrDefault(r => r.Nome == nomeResponsavel);
+            Console.WriteLine($"Já existe uma tarefa com o nome \"{nomeTarefa}\".");
+            return;
+        }
 
-            if (responsavel == null)
+        string nomeResponsavel = LerEntradaObrigatoria("Digite o nome do responsável: ");
+        Responsavel? responsavel = listaDeResponsaveis.FirstOrDefault(r => r.Nome == nomeResponsavel);
+
+        if (responsavel == null)
+        {
+            Console.WriteLine($"Responsável \"{nomeResponsavel}\" não encontrado. A tarefa não será cadastrada.");
+            return;
+        }
+
+        int tarefasEmAndamento = listaDeTarefas
+            .Where(t => t.Responsavel?.Nome == responsavel.Nome && t.Status == StatusTarefa.Em_Andamento)
+            .Count();
+
+        if (tarefasEmAndamento >= 3)
+        {
+            Console.WriteLine($"O responsável \"{responsavel.Nome}\" já possui 3 tarefas em andamento. A nova tarefa não pode ser cadastrada.");
+            return;
+        }
+
+        DateTime dataLimite;
+        while (true)
+        {
+            Console.Write("Digite a data limite (formato dd/MM/yyyy): ");
+            string entradaData = Console.ReadLine() ?? "";
+
+            if (DateTime.TryParseExact(entradaData, "dd/MM/yyyy", null, System.Globalization.DateTimeStyles.None, out dataLimite))
             {
-                Console.WriteLine($"Responsável \"{nomeResponsavel}\" não encontrado. A tarefa não será cadastrada.");
-                return;
+                if (dataLimite < DateTime.Now.Date)
+                {
+                    Console.WriteLine("A data limite não pode ser anterior à data atual.");
+                    continue;
+                }
+                break;
+            }
+            else
+            {
+                Console.WriteLine("Data inválida. Tente novamente.");
             }
         }
 
-        listaDeTarefas.Add(new Tarefa(nomeTarefa, responsavel));
-        Console.WriteLine($"Tarefa '{nomeTarefa}' cadastrada com sucesso!");
+        Console.WriteLine("Escolha a prioridade:");
+        Console.WriteLine("1 - Baixa\n2 - Média\n3 - Alta");
+
+        PrioridadeTarefa prioridade;
+        while (true)
+        {
+            Console.Write("Digite a prioridade: ");
+            if (int.TryParse(Console.ReadLine(), out int prioridadeEscolhida) &&
+                Enum.IsDefined(typeof(PrioridadeTarefa), prioridadeEscolhida - 1))
+            {
+                prioridade = (PrioridadeTarefa)(prioridadeEscolhida - 1);
+                break;
+            }
+            else
+            {
+                Console.WriteLine("Valor inválido. Tente novamente.");
+            }
+        }
+
+        if (prioridade == PrioridadeTarefa.Alta && dataLimite > DateTime.Now.AddDays(7))
+        {
+            Console.WriteLine("Tarefas de alta prioridade não podem ter data limite superior a 7 dias.");
+            return;
+        }
+
+        try
+        {
+            var novaTarefa = new Tarefa(nomeTarefa, dataLimite, prioridade, responsavel);
+            listaDeTarefas.Add(novaTarefa);
+            Console.WriteLine($"Tarefa '{nomeTarefa}' cadastrada com sucesso!");
+        }
+        catch (ArgumentException ex)
+        {
+            Console.WriteLine($"Erro ao cadastrar a tarefa: {ex.Message}");
+        }
     }
 
     static void excluirResponsavel()
@@ -141,7 +211,6 @@ class Program
     static void atualizarStatusTarefa()
     {
         string nome = LerEntradaObrigatoria("Insira o nome da tarefa que deseja atualizar: ");
-
         Tarefa? tarefa = listaDeTarefas.FirstOrDefault(t => t.Nome == nome);
 
         if (tarefa == null)
@@ -150,14 +219,19 @@ class Program
             return;
         }
 
-        if (tarefa.Status == "Concluida")
-        {
-            Console.WriteLine($"A tarefa \"{nome}\" já está marcada como concluída.");
-            return;
-        }
+        Console.WriteLine("Selecione o novo status:");
+        Console.WriteLine("1 - A Fazer\n2 - Em Andamento\n3 - Concluída");
 
-        tarefa.MarcarComoConcluida();
-        Console.WriteLine($"A tarefa \"{nome}\" foi marcada como concluída.");
+        if (int.TryParse(Console.ReadLine(), out int novoStatus) &&
+            Enum.IsDefined(typeof(StatusTarefa), novoStatus - 1))
+        {
+            tarefa.AlterarStatus((StatusTarefa)(novoStatus - 1));
+            Console.WriteLine($"Status da tarefa \"{nome}\" atualizado para {tarefa.Status}.");
+        }
+        else
+        {
+            Console.WriteLine("Status inválido.");
+        }
     }
 
     static void listarResponsavel()
