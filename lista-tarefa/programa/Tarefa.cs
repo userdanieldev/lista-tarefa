@@ -9,24 +9,27 @@ namespace GestaoTarefas
     class Tarefa
     {
         public string Nome { get; set; }
-        public bool Concluida { get; set; }
+        public string Status { get; set; }
         public Responsavel? Responsavel { get; set; }
 
         public Tarefa(string nome, Responsavel? responsavel = null)
         {
-            Nome = nome;
-            Concluida = false;
+            if (string.IsNullOrWhiteSpace(nome))
+                throw new ArgumentException("O nome da tarefa não pode ser nulo ou vazio.");
+
+            Nome = nome.Trim();
+            Status = "Pendente";
             Responsavel = responsavel;
         }
 
         public void MarcarComoConcluida()
         {
-            Concluida = true;
+            Status = "Concluida";
         }
 
         public override string ToString()
         {
-            string status = Concluida ? "Concluída" : "Pendente";
+            string status = Status;
             string responsavelInfo = Responsavel != null ? Responsavel.Nome : "Sem responsável";
             return $"{Nome} - Status: {status} - Responsável: {responsavelInfo}";
         }

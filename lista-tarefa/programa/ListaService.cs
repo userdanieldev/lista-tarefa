@@ -117,14 +117,13 @@ class TarefaService
         tarefasDoResponsavel.ForEach(t => Console.WriteLine(t));
     }
 
-
     private List<Tarefa> FiltrarTarefas(TipoListagem tipo)
     {
         return tipo switch
         {
             TipoListagem.Todas => _tarefas.ToList(),
-            TipoListagem.Pendentes => _tarefas.Where(t => !t.Concluida).ToList(),
-            TipoListagem.Concluidas => _tarefas.Where(t => t.Concluida).ToList(),
+            TipoListagem.Pendentes => _tarefas.Where(t => t.Status.Equals("Pendente", StringComparison.OrdinalIgnoreCase)).ToList(),
+            TipoListagem.Concluidas => _tarefas.Where(t => t.Status.Equals("Concluida", StringComparison.OrdinalIgnoreCase)).ToList(),
             _ => new List<Tarefa>()
         };
     }

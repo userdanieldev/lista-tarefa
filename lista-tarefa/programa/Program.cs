@@ -150,7 +150,7 @@ class Program
             return;
         }
 
-        if (tarefa.Concluida)
+        if (tarefa.Status == "Concluida")
         {
             Console.WriteLine($"A tarefa \"{nome}\" já está marcada como concluída.");
             return;
