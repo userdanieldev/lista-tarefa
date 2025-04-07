@@ -46,6 +46,7 @@ namespace GestaoTarefas
             Status = StatusTarefa.A_Fazer;
         }
 
+        /// Método para marcar a tarefa como concluída
         public void MarcarComoEmAndamento()
         {
             Status = StatusTarefa.Em_Andamento;
@@ -53,10 +54,11 @@ namespace GestaoTarefas
 
         public override string ToString()
         {
-            string responsavelInfo = Responsavel != null ? Responsavel.Nome : "Sem responsável";
+            string responsavelInfo = Responsavel != null ? Responsavel.Nome : "";
             return $"{Nome} - Limite: {DataLimite:dd/MM/yyyy} - Status: {Status} - Prioridade: {Prioridade} - Responsável: {responsavelInfo}";
         }
 
+        /// Método para alterar o status da tarefa
         public void AlterarStatus(StatusTarefa novoStatus)
         {
             Status = novoStatus;

@@ -9,6 +9,7 @@ class TarefaService
         _tarefas = tarefas;
     }
 
+    /// Método para listar tarefas
     public void ListarMenuDeTarefas()
     {
         int opcaoListar;
@@ -54,6 +55,7 @@ class TarefaService
         } while (opcaoListar != 0);
     }
 
+    /// Método para exibir o submenu de filtro
     private void SubMenuFiltro(TipoListagem tipo)
     {
         int filtro;
@@ -72,7 +74,8 @@ class TarefaService
             ListarPorResponsavel(tipo);
     }
 
-    private void Listar(TipoListagem tipo)
+    /// Método para listar tarefas de acordo com o tipo de listagem
+    public void Listar(TipoListagem tipo)
     {
         var tarefas = FiltrarTarefas(tipo).OrderBy(t => t.DataLimite).ToList();
 
@@ -91,6 +94,7 @@ class TarefaService
             tarefas.ForEach(t => Console.WriteLine(t));
     }
 
+    /// Método para listar tarefas por responsável
     private void ListarPorResponsavel(TipoListagem tipo)
     {
         string nome = LerEntradaObrigatoria("Digite o nome do responsável: ");

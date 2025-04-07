@@ -1,4 +1,8 @@
-﻿using System.Xml.Linq;
+﻿// Daniek Victor
+// Felipe Garcia
+// Gustavo Henrique
+
+using System.Xml.Linq;
 
 namespace GestaoTarefas;
 
@@ -72,6 +76,7 @@ class Program
         } while (opcao != 0);
     }
 
+    // Método para cadastrar novo responsável
     static void cadastrarNovoResponsavel()
     {
         string nome = LerEntradaObrigatoria("Insira o nome do responsável: ");
@@ -88,7 +93,7 @@ class Program
         Console.WriteLine($"Responsável {nome} cadastrado com sucesso!");
     }
 
-
+    // Método para cadastrar nova tarefa
     static void cadastrarNovaTarefa()
     {
         string nomeTarefa = LerEntradaObrigatoria("Insira o nome da tarefa: ");
@@ -99,7 +104,9 @@ class Program
             return;
         }
 
-        string nomeResponsavel = LerEntradaObrigatoria("Digite o nome do responsável: ");
+        listarResponsavel();
+
+        string nomeResponsavel = LerEntradaObrigatoria("\n\nDigite o nome do responsável: ");
         Responsavel? responsavel = listaDeResponsaveis.FirstOrDefault(r => r.Nome == nomeResponsavel);
 
         if (responsavel == null)
@@ -175,10 +182,13 @@ class Program
             Console.WriteLine($"Erro ao cadastrar a tarefa: {ex.Message}");
         }
     }
-
+    // Métodos para excluir responsável e tarefa
     static void excluirResponsavel()
     {
-        string nome = LerEntradaObrigatoria("Insira o nome do responsável que deseja excluir: ");
+        listarResponsavel();
+
+
+        string nome = LerEntradaObrigatoria("\n\nInsira o nome do responsável que deseja excluir: ");
 
         Responsavel? responsavel = listaDeResponsaveis.FirstOrDefault(r => r.Nome == nome);
 
@@ -192,9 +202,13 @@ class Program
         Console.WriteLine($"O responsável \"{nome}\" foi excluído.");
     }
 
+    // Método para excluir tarefa
     static void excluirTarefa()
     {
-        string nome = LerEntradaObrigatoria("Insira o nome da tarefa que deseja excluir: ");
+
+        listaService.Listar(TipoListagem.Todas);
+
+        string nome = LerEntradaObrigatoria("\n\nInsira o nome da tarefa que deseja excluir: ");
 
         Tarefa? tarefa = listaDeTarefas.FirstOrDefault(t => t.Nome == nome);
 
@@ -208,9 +222,12 @@ class Program
         Console.WriteLine($"A tarefa \"{nome}\" foi excluída.");
     }
 
+    // Método para atualizar o status da tarefa
     static void atualizarStatusTarefa()
     {
-        string nome = LerEntradaObrigatoria("Insira o nome da tarefa que deseja atualizar: ");
+        listaService.Listar(TipoListagem.Todas);
+
+        string nome = LerEntradaObrigatoria("\n\nInsira o nome da tarefa que deseja atualizar: ");
         Tarefa? tarefa = listaDeTarefas.FirstOrDefault(t => t.Nome == nome);
 
         if (tarefa == null)
@@ -233,7 +250,7 @@ class Program
             Console.WriteLine("Status inválido.");
         }
     }
-
+    // Método para listar responsáveis
     static void listarResponsavel()
     {
         Console.WriteLine("\nResponsáveis cadastrados:");
@@ -250,6 +267,7 @@ class Program
         }
     }
 
+    // Método para listar tarefas
     static void listarTarefa()
     {
         Console.WriteLine("\nTarefas cadastradas:");
@@ -263,6 +281,7 @@ class Program
         }
     }
 
+    // Método para ler entrada obrigatória
     static string LerEntradaObrigatoria(string mensagem)
     {
         string? entrada;
